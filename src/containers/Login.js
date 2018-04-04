@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import AppFrame from '../components/AppFrame';
-import CustomerEdit from '../components/CustomerEdit';
+import CustomerLogin from '../components/CustomerLogin';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { insertCustomer } from "./../actions/insertCustomer";
