@@ -26,10 +26,10 @@ class Login extends Component {
     }
 
     renderBody = () => {
-        return <CustomerEdit onSubmit={this.handleSubmit}
+        return <CustomerLogin onSubmit={this.handleSubmit}
             onSubmitSuccess={this.handleSubmitSuccess}
             onBack={this.handelOnBack}>
-        </CustomerEdit>
+        </CustomerLogin>
     }
 
     render() {
