@@ -1,0 +1,40 @@
+{
+  "customers": [
+    {
+      "name": "NUEVO PLIMITO",
+      "dni": "123",
+      "age": 12,
+      "id": "o8vWa2J"
+    },
+    {
+      "user": {
+        "permissions": [
+          "CUSTOMER_LIST",
+          "CUSTOMER_VIEW",
+          "CUSTOMER_EDIT"
+        ]
+      },
+      "name": "NUEVI",
+      "dni": "0001",
+      "age": 15,
+      "id": "qTyfC_F"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,13 @@
+yarn add react-redux
+yarn add redux-actions
+npm install -g json-server
+
+yarn add redux-promise 
+yarn add reselect
+yarn add redux-form
+
+/*iniciar servidor de json server
+json-server --watch db.json --port 3001
+
+/*ejecutar el node-server.js
+node node-server.js
