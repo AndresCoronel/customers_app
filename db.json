@@ -26,6 +26,22 @@
       "cedula": "099991",
       "age": 16,
       "id": "fQ1QS7M"
+    },
+    {
+      "user": {
+        "permissions": [
+          "CUSTOMER_LIST",
+          "CUSTOMER_VIEW",
+          "CUSTOMER_EDIT",
+          "MOVIE_LIST",
+          "MOVIE_VIEW",
+          "MOVIE_EDIT"
+        ]
+      },
+      "name": "YESICA PIÑERES",
+      "cedula": "10129103913",
+      "age": 18,
+      "id": "pYMfq7z"
     }
   ],
   "movies": [
@@ -43,6 +59,27 @@
       "nombre": "EL ABRAZO DE LA MAMA MOCHA",
       "id": "2",
       "duracion": 20
+    },
+    {
+      "user": {
+        "permissions": [
+          "CUSTOMER_LIST",
+          "CUSTOMER_VIEW",
+          "CUSTOMER_EDIT",
+          "MOVIE_LIST",
+          "MOVIE_VIEW",
+          "MOVIE_EDIT"
+        ]
+      },
+      "nombre": "BRYAN",
+      "descripcion": "JOVEN DE 18 AÑOS",
+      "reparto": "DE HOLLYWOOD",
+      "director": "CORONEL ALIPIO",
+      "paisOrigen": "LITUANIA",
+      "fechaEstreno": "32 DE DICIEMBRE",
+      "id": "U00114057",
+      "duracion": 4.5,
+      "isDeleteAllow": false
     }
   ],
   "posts": [

@@ -77,23 +77,45 @@ class MovieEdit extends Component {
                         format={toLower} ></Field>
 
                     <Field
-                        withFocus
-                        name="duracion"
+                        name="descripcion"
                         component={this.renderField}
-                        label="Duracion"
+                        label="Descripcion"
                         parse={toUpper}
                         format={toLower} ></Field>
+
                     <Field
-                        withFocus
+                        name="reparto"
+                        component={this.renderField}
+                        label="Reparto"
+                        parse={toUpper}
+                        format={toLower} ></Field>
+
+                    <Field
                         name="director"
                         component={this.renderField}
                         label="Director"
                         parse={toUpper}
                         format={toLower} ></Field>
+
+                    <Field
+                        name="paisOrigen"
+                        component={this.renderField}
+                        label="Pais origen"
+                        parse={toUpper}
+                        format={toLower} ></Field>
+
+                    <Field
+                        name="fechaEstreno"
+                        component={this.renderField}
+                        label="Fecha de estreno"
+                        parse={toUpper}
+                        format={toLower} ></Field>
+
                     <Field
                         name="id"
                         component={this.renderField}
                         label="id"></Field>
+
                     <Field name="duracion"
                         component={this.renderField}
                         type="number"
@@ -122,6 +144,11 @@ MovieEdit.propTypes = {
     nombre: PropTypes.string,
     id: PropTypes.string,
     duracion: PropTypes.number,
+    descripcion: PropTypes.string,
+    reparto: PropTypes.string,
+    paisOrigen: PropTypes.string,
+    fechaEstreno: PropTypes.string,
+    director: PropTypes.string,
     onBack: PropTypes.func.isRequired,
 }
 
@@ -131,4 +158,4 @@ const MovieEditForm = reduxForm(
         validate
     })(MovieEdit);
 
-export default accessControl([MOVIE_EDIT]) (setPropsAsInitial(MovieEditForm));
+export default accessControl([MOVIE_EDIT])(setPropsAsInitial(MovieEditForm));
