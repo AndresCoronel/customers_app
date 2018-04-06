@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { reduxForm, Field } from 'redux-form';
 import { connect } from "react-redux";
-import { setPropsAsInitial } from '../helpers/setPropsAsInitial';
-import CustomersActions from './CustomersActions';
+import { setPropsAsInitial } from './../../helpers/setPropsAsInitial';
+import MoviesActions from './MoviesActions';
 import { Prompt } from 'react-router-dom';
-import { accessControl } from '../helpers/accessControl';
-import { CUSTOMER_EDIT } from '../constants/permissions';
+import { accessControl } from './../../helpers/accessControl';
+import { MOVIE_EDIT } from './../../constants/permissions';
 
 /*hacer que un campo sea requerido*/
 const isRequired = value => (
@@ -21,11 +21,11 @@ const isNumber = value => (
 const validate = values => {
 
     const error = {};
-    if (values.name!="1") {
-        error.name = "Usuario Incorrecto"
+    if (!values.nombre) {
+        error.nombre = "El campo nombre es requerido"
     }
-    if (values.cedula!="1") {
-        error.cedula = "Contraseña pailas"
+    if (!values.id) {
+        error.id = "El campo id es requerido"
     }
     return error;
 }
@@ -43,8 +43,7 @@ const onlyGrow = (value, previousValue, values) =>
     value && (!previousValue ? value : (value > previousValue ? value : previousValue));
 
 
-class CustomerLogin extends Component {
-
+class MovieEdit extends Component {
     componentDidMount() {
         if (this.txt) {
             this.txt.focus();
@@ -52,9 +51,9 @@ class CustomerLogin extends Component {
     }
 
     /*Mostrar el error del campo*/
-    renderField = ({ input, meta, type, label, name, withFocus}) => (
+    renderField = ({ input, meta, type, label, nombre, withFocus }) => (
         <div>
-            <label htmlFor={name}>{label}</label>
+            <label htmlFor={nombre}>{label}</label>
             <input {...input} type={!type ? "text" : type}
                 ref={withFocus && (txt => this.txt = txt)} />
             {
@@ -66,36 +65,50 @@ class CustomerLogin extends Component {
     render() {
         const { handleSubmit, submitting, onBack, pristine, submitSucceeded } = this.props;
         return (
-            
             <div>
-                <h2>Edición del cliente</h2>
+                <h2>Edición de la pelicula</h2>
                 <form onSubmit={handleSubmit}>
                     <Field
                         withFocus
-                        name="name"
+                        name="nombre"
                         component={this.renderField}
                         label="Nombre"
                         parse={toUpper}
                         format={toLower} ></Field>
+
                     <Field
-                        name="cedula"
+                        withFocus
+                        name="duracion"
                         component={this.renderField}
-                        label="cedula"></Field>
-                    <Field name="age"
+                        label="Duracion"
+                        parse={toUpper}
+                        format={toLower} ></Field>
+                    <Field
+                        withFocus
+                        name="director"
+                        component={this.renderField}
+                        label="Director"
+                        parse={toUpper}
+                        format={toLower} ></Field>
+                    <Field
+                        name="id"
+                        component={this.renderField}
+                        label="id"></Field>
+                    <Field name="duracion"
                         component={this.renderField}
                         type="number"
                         validate={isNumber}
-                        label="Edad"
+                        label="duracion"
                         parse={toNumber}
                         normalize={onlyGrow} ></Field>
-                    <CustomersActions>
+                    <MoviesActions>
                         <button type="submit" disabled={pristine || submitting}>
                             Aceptar
                         </button>
                         <button type="button" disabled={submitting} onClick={onBack}>
                             Cancelar
                         </button>
-                    </CustomersActions>
+                    </MoviesActions>
                     <Prompt
                         when={!pristine && !submitSucceeded}
                         message="Se perderán los datos si continúa"></Prompt>
@@ -105,18 +118,17 @@ class CustomerLogin extends Component {
     };
 }
 
-CustomerLogin.propTypes = {
-    name: PropTypes.string,
-    cedula: PropTypes.string,
-    age: PropTypes.number,
+MovieEdit.propTypes = {
+    nombre: PropTypes.string,
+    id: PropTypes.string,
+    duracion: PropTypes.number,
     onBack: PropTypes.func.isRequired,
-    customers: PropTypes.array.isRequired,
 }
 
-const CustomerLoginForm = reduxForm(
+const MovieEditForm = reduxForm(
     {
-        form: 'CustomerLogin',
+        form: 'MovieEdit',
         validate
-    })(CustomerLogin);
+    })(MovieEdit);
 
-export default accessControl([CUSTOMER_EDIT]) (setPropsAsInitial(CustomerLoginForm));
+export default accessControl([MOVIE_EDIT]) (setPropsAsInitial(MovieEditForm));

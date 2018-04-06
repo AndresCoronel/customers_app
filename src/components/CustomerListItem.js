@@ -2,24 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const CustomerListItem = ({ name, editAction, delAction, urlPath, dni }) => {
+const CustomerListItem = ({ name, editAction, delAction, urlPath, cedula }) => {
     return (
         <div className="customers-list-item">
             <div className="field">
-                <Link to={`${urlPath}${dni}`}>{name}</Link>
+                <Link to={`${urlPath}${cedula}`}>{name}</Link>
             </div>
             <div className="field">
-                <Link to={`${urlPath}${dni}/edit`}>{editAction}</Link>
+                <Link to={`${urlPath}${cedula}/edit`}>{editAction}</Link>
             </div>
             <div className="field">
-                <Link to={`${urlPath}${dni}/delete`}>{delAction}</Link>
+                <Link to={`${urlPath}${cedula}/delete`}>{delAction}</Link>
             </div>
         </div>
     );
 };
 
 CustomerListItem.propTypes = {
-    dni: PropTypes.string.isRequired,
+    cedula: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     editAction: PropTypes.string.isRequired,
     delAction: PropTypes.string.isRequired,

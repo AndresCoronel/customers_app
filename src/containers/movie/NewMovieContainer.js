@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import AppFrame from '../components/AppFrame';
-import CustomerEdit from '../components/CustomerEdit';
+import AppFrame from './../../components/AppFrame';
+import MovieEdit from './../../components/movie/MovieEdit';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { insertCustomer } from "./../actions/customer/insertCustomer";
+import { insertMovie } from "./../../actions/movie/insertMovie";
 import { SubmissionError } from 'redux-form';
 
-class NewCustomerContainer extends Component {
+class NewMovieContainer extends Component {
 
     handleSubmit = values => {
-        return this.props.insertCustomer(values).then(r => {
+        return this.props.insertMovie(values).then(r => {
             if (r.error) {
                 throw new SubmissionError(r.payload);
             }
@@ -26,16 +26,16 @@ class NewCustomerContainer extends Component {
     }
 
     renderBody = () => {
-        return <CustomerEdit onSubmit={this.handleSubmit}
+        return <MovieEdit onSubmit={this.handleSubmit}
             onSubmitSuccess={this.handleSubmitSuccess}
             onBack={this.handelOnBack}>
-        </CustomerEdit>
+        </MovieEdit>
     }
 
     render() {
         return (
             <div>
-                <AppFrame header={`Crear un nuevo usuario`}
+                <AppFrame header={`Crear una nueva pelicula`}
                     body={this.renderBody()}>
                 </AppFrame>
             </div>
@@ -44,7 +44,7 @@ class NewCustomerContainer extends Component {
 }
 
 
-NewCustomerContainer.propTypes = {
-    insertCustomer: PropTypes.func.isRequired,
+NewMovieContainer.propTypes = {
+    insertMovie: PropTypes.func.isRequired,
 }
-export default withRouter(connect(null, { insertCustomer })(NewCustomerContainer));
+export default withRouter(connect(null, { insertMovie })(NewMovieContainer));

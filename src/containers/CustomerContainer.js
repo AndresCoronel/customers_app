@@ -3,13 +3,13 @@ import { SubmissionError } from 'redux-form';
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 import AppFrame from './../components/AppFrame';
-import { getCustomerByDni } from '../selectors/customers';
+import { getCustomerByCedula } from '../selectors/customers';
 import { Route, withRouter } from 'react-router-dom';
 import CustomerEdit from '../components/CustomerEdit';
 import CustomerData from '../components/CustomerData';
-import { fetchCustomers } from "./../actions/fetchCustomers";
-import { updateCustomer } from "./../actions/updateCustomer";
-import { deleteCustomer } from "./../actions/deleteCustomer";
+import { fetchCustomers } from "./../actions/customer/fetchCustomers";
+import { updateCustomer } from "./../actions/customer/updateCustomer";
+import { deleteCustomer } from "./../actions/customer/deleteCustomer";
 
 class CustomerContainer extends Component {
 
@@ -60,9 +60,9 @@ class CustomerContainer extends Component {
   }
 
   renderBody = () => (
-    <Route path="/customers/:dni/edit" children={
+    <Route path="/customers/:cedula/edit" children={
       ({ match: isEdit }) => (
-        <Route path="/customers/:dni/delete" children={
+        <Route path="/customers/:cedula/delete" children={
           ({ match: isDelete }) => (
             this.renderCustomerControl(isEdit, isDelete))
         } />)
@@ -72,7 +72,7 @@ class CustomerContainer extends Component {
   render() {
     return (
       <div>
-        <AppFrame header={`Usuario: ${this.props.dni} `}
+        <AppFrame header={`Usuario: ${this.props.cedula} `}
           body={this.renderBody()} >
         </AppFrame>
       </div>
@@ -80,7 +80,7 @@ class CustomerContainer extends Component {
   }
 }
 CustomerContainer.propTypes = {
-  dni: PropTypes.string.isRequired,
+  cedula: PropTypes.string.isRequired,
   customer: PropTypes.object,
   fetchCustomers: PropTypes.func.isRequired,
   updateCustomer: PropTypes.func.isRequired,
@@ -88,7 +88,7 @@ CustomerContainer.propTypes = {
 
 }
 const mapStateToProps = (state, props) => ({
-  customer: getCustomerByDni(state, props)
+  customer: getCustomerByCedula(state, props)
 });
 
 export default withRouter(connect(mapStateToProps, {

@@ -24,8 +24,8 @@ const validate = values => {
     if (!values.name) {
         error.name = "El campo nombre es requerido"
     }
-    if (!values.dni) {
-        error.dni = "El campo dni es requerido"
+    if (!values.cedula) {
+        error.cedula = "El campo cedula es requerido"
     }
     return error;
 }
@@ -76,9 +76,9 @@ class CustomerEdit extends Component {
                         parse={toUpper}
                         format={toLower} ></Field>
                     <Field
-                        name="dni"
+                        name="cedula"
                         component={this.renderField}
-                        label="Dni"></Field>
+                        label="Cedula"></Field>
                     <Field name="age"
                         component={this.renderField}
                         type="number"
@@ -105,7 +105,7 @@ class CustomerEdit extends Component {
 
 CustomerEdit.propTypes = {
     name: PropTypes.string,
-    dni: PropTypes.string,
+    cedula: PropTypes.string,
     age: PropTypes.number,
     onBack: PropTypes.func.isRequired,
 }

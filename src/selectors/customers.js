@@ -2,7 +2,7 @@
 
 export const getCustomers = state => state.customers;
 
-export const getCustomerByDni = createSelector (
-    (state, props) => state.customers.find(c => c.dni === props.dni ),
+export const getCustomerByCedula = createSelector (
+    (state, props) => state.customers.find(c => c.cedula === props.cedula ),
     customer => customer
 );

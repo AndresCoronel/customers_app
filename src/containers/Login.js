@@ -4,21 +4,19 @@ import AppFrame from '../components/AppFrame';
 import CustomerLogin from '../components/CustomerLogin';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { insertCustomer } from "./../actions/insertCustomer";
+import { insertCustomer } from "./../actions/customer/insertCustomer";
 import { SubmissionError } from 'redux-form';
 
 class Login extends Component {
 
     handleSubmit = values => {
-        return this.props.insertCustomer(values).then(r => {
-            if (r.error) {
-                throw new SubmissionError(r.payload);
-            }
-        });
+       if(!values){
+        this.props.history.push('/customers');
+       }
     }
 
     handleSubmitSuccess = () => {
-        this.props.history.goBack();
+        this.props.history.push('/customers');
     }
 
     handelOnBack = () => {
@@ -35,7 +33,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <AppFrame header={`Crear un nuevo usuario`}
+                <AppFrame header={`Login`}
                     body={this.renderBody()}>
                 </AppFrame>
             </div>

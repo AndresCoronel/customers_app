@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import AppFrame from '../components/AppFrame';
 import CustomersList from './../components/CustomersList';
 import CustomersActions from './../components/CustomersActions';
-import { fetchCustomers } from './../actions/fetchCustomers';
+import { fetchCustomers } from './../actions/customer/fetchCustomers';
 import { getCustomers } from '../selectors/customers';
 
 

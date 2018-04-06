@@ -161,6 +161,79 @@ img {
   font-size: 20px;
 }
 
+/*******************************************Movies*****************************************************/
+.movies-list .movies-list-item {
+  width: 100%;
+  background: #FFF; 
+  transition: 500ms;
+  height: 40px;
+}
 
+.movies-list .movies-list-item:nth-child(even) {
+  background: #EEE;  
+}
+
+.movies-list .movies-list-item:hover {
+  background: #84adad3a;
+  border: 1px solid;
+} 
+
+.movies-list-item .field {
+  width: 160px;
+  margin: 1px;
+  padding: 4px;
+  overflow: hidden;
+  display: inline-block;
+  line-height: 40px;
+}
+.movies-list-item .field:first-child {
+  width: 70%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.movies-list-item .field {
+  width: 15%;
+  margin: 0;
+  box-sizing: border-box;  
+}
+
+
+.movies-list-item .field:first-child > a {
+  color: #222;
+  text-decoration: none;
+  font-weight: bolder;
+}
+
+.movies-list-item .field a {
+  color: #666;
+  text-decoration: none;
+  
+}
+
+.movies-actions {
+  margin: 0;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  background: rgba(0,0,0,0.2);
+  padding: 10px;
+  width: calc(100% - 80px);
+}
+
+.movies-actions button {
+  background: white;
+  min-width: 100px;
+  height: 30px;
+  margin: 5px;
+  border-style: none;
+  border-radius: 3px;
+  font-weight: bolder;
+}
+
+.movies-actions button:hover {
+  background: #F0F0F0;
+  border-style: solid;
+}
 
 

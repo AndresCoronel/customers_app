@@ -2,9 +2,17 @@
   "customers": [
     {
       "name": "NUEVO PLIMITO",
-      "dni": "123",
-      "age": 12,
-      "id": "o8vWa2J"
+      "cedula": "432",
+      "age": 14,
+      "id": "o8vWa2J",
+      "isDeleteAllow": false,
+      "user": {
+        "permissions": [
+          "CUSTOMER_LIST",
+          "CUSTOMER_VIEW",
+          "CUSTOMER_EDIT"
+        ]
+      }
     },
     {
       "user": {
@@ -14,10 +22,27 @@
           "CUSTOMER_EDIT"
         ]
       },
-      "name": "NUEVI",
-      "dni": "0001",
-      "age": 15,
-      "id": "qTyfC_F"
+      "name": "NUEVO USUARIO",
+      "cedula": "099991",
+      "age": 16,
+      "id": "fQ1QS7M"
+    }
+  ],
+  "movies": [
+    {
+      "user": {
+        "permissions": [
+          "CUSTOMER_LIST",
+          "CUSTOMER_VIEW",
+          "CUSTOMER_EDIT",
+          "MOVIE_LIST",
+          "MOVIE_VIEW",
+          "MOVIE_EDIT"
+        ]
+      },
+      "nombre": "EL ABRAZO DE LA MAMA MOCHA",
+      "id": "2",
+      "duracion": 20
     }
   ],
   "posts": [
