@@ -4,4 +4,4 @@ import { apiDelete } from './../../api/apiMovie';
 import { urlMovies } from './../../api/apiMovie/urls';
 
 export const deleteMovie = createAction(DELETE_MOVIE,
-    (id, movie) => apiDelete(urlMovies, id, movie)());  
+    (id, movie) => apiDelete(urlMovies, id, movie)());      

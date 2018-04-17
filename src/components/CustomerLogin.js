@@ -7,6 +7,8 @@ import CustomersActions from './CustomersActions';
 import { Prompt } from 'react-router-dom';
 import { accessControl } from '../helpers/accessControl';
 import { CUSTOMER_EDIT } from '../constants/permissions';
+import { getCustomerByCedula } from '../selectors/customers';
+import './../style/styleMovie.css';
 
 /*hacer que un campo sea requerido*/
 const isRequired = value => (
@@ -17,16 +19,18 @@ const isRequired = value => (
 const isNumber = value => (
     isNaN(Number(value)) && "El campo debe ser un número"
 );
-/*jacer requerido globalmente*/
-const validate = values => {
+/*hacer requerido globalmente*/
+const validate = (values, cedula) => {
 
     const error = {};
-    if (values.name!="1") {
-        error.name = "Usuario Incorrecto"
+    if (values.name != "123") {
+        error.name = "Usuario Incorrecto";
     }
-    if (values.cedula!="1") {
+
+    if (values.cedula != "123") {
         error.cedula = "Contraseña pailas"
     }
+
     return error;
 }
 
@@ -52,7 +56,7 @@ class CustomerLogin extends Component {
     }
 
     /*Mostrar el error del campo*/
-    renderField = ({ input, meta, type, label, name, withFocus}) => (
+    renderField = ({ input, meta, type, label, name, withFocus }) => (
         <div>
             <label htmlFor={name}>{label}</label>
             <input {...input} type={!type ? "text" : type}
@@ -63,42 +67,44 @@ class CustomerLogin extends Component {
         </div>
     );
 
+
     render() {
         const { handleSubmit, submitting, onBack, pristine, submitSucceeded } = this.props;
         return (
-            
+
             <div>
-                <h2>Edición del cliente</h2>
+                <h2>Ingresar</h2>
+
                 <form onSubmit={handleSubmit}>
                     <Field
                         withFocus
                         name="name"
                         component={this.renderField}
-                        label="Nombre"
+                        label="Nombre: *"
                         parse={toUpper}
                         format={toLower} ></Field>
-                    <Field
-                        name="cedula"
-                        component={this.renderField}
-                        label="cedula"></Field>
-                    <Field name="age"
+
+                    <Field name="cedula"
                         component={this.renderField}
                         type="number"
                         validate={isNumber}
-                        label="Edad"
+                        label="Cedula: *"
                         parse={toNumber}
                         normalize={onlyGrow} ></Field>
-                    <CustomersActions>
-                        <button type="submit" disabled={pristine || submitting}>
+
+                    <div className="alineacionBotones">
+                        <button className="botonesActions" type="submit" disabled={pristine || submitting}>
                             Aceptar
                         </button>
-                        <button type="button" disabled={submitting} onClick={onBack}>
+
+                        <button className="botonesActions" type="button" disabled={submitting} onClick={onBack}>
                             Cancelar
                         </button>
-                    </CustomersActions>
+                    </div>
+                   
                     <Prompt
                         when={!pristine && !submitSucceeded}
-                        message="Se perderán los datos si continúa"></Prompt>
+                        message="Exitoso"></Prompt>
                 </form>
             </div>
         );
@@ -108,10 +114,14 @@ class CustomerLogin extends Component {
 CustomerLogin.propTypes = {
     name: PropTypes.string,
     cedula: PropTypes.string,
-    age: PropTypes.number,
     onBack: PropTypes.func.isRequired,
     customers: PropTypes.array.isRequired,
+    customer: PropTypes.object,
 }
+
+const mapStateToProps = (state, props) => ({
+    customer: getCustomerByCedula(state, props)
+});
 
 const CustomerLoginForm = reduxForm(
     {
@@ -119,4 +129,4 @@ const CustomerLoginForm = reduxForm(
         validate
     })(CustomerLogin);
 
-export default accessControl([CUSTOMER_EDIT]) (setPropsAsInitial(CustomerLoginForm));
+export default accessControl([CUSTOMER_EDIT])(setPropsAsInitial(CustomerLoginForm));

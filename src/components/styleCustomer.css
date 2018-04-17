@@ -1,0 +1,203 @@
+.card1 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+	background-color: gray;
+	border-radius: 15px;
+	padding: 2px 16px 18px 18px;
+
+}
+.card1:hover{
+	
+		box-shadow: 5px 8px 16px 0px rgba(0,0,0,0.2);
+
+}
+.info {
+	color: white;
+	font-size: 20px;
+	width: 100%;
+}
+
+.title {
+    color: white;
+	font-size: 18px;
+}
+
+.bt {
+    border-radius: 10px 10px 10px 10px;
+    outline: 0;
+    padding: 8px;
+    color: white;
+    background-color: dodgerblue;
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+	font-size: 18px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: white;
+}
+
+.h {
+	font-weight: bold;
+	color: white;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-size: 1.7em;
+	margin-bottom: -10px;
+	width: auto;
+}
+
+.bt:hover, a:hover {
+    opacity: 0.7;
+}
+ .imgn {
+	height: 170px;
+	 
+ }
+
+ .info-container {
+	display: grid;
+	grid-template-columns: auto auto ;
+	grid-gap: 10px;
+	padding: 10px;
+	margin-bottom: 20px;
+	grid-template-rows: auto ;	
+  }
+
+  .user{
+	display: inline-block;
+  }
+  .btnAccion{
+	  background-color: dodgerblue;
+	  padding: 7px 35px 7px 35px;
+	  margin: 5px;
+	  border-radius: 5px;
+	 
+  }
+  .btnAccion:hover{
+	opacity: 0.7;
+	background-color: darkturquoise;
+  }
+
+  .botones{
+	margin: 10px;
+	display: inline-block;
+  }
+
+  .camposTexto{
+	  border: none;
+	  display: inline-block;
+    background-color: darkturquoise;
+    padding: 8px;
+    border-radius: 5px 5px 5px 5px; 
+    width: 100%;
+    outline: none;
+     
+  }
+
+
+  /**************************************************************/
+
+  .panel {
+	margin-top: 50px;
+	position: inherit;
+	background: #bababa;
+	border-radius: 5px;
+	padding: 60px 0 40px 0;
+	box-sizing: border-box;
+	box-shadow: 6px 6px 6px 0 rgba(0, 0, 0, 0.12);
+	-webkit-transition: .3s ease;
+	transition: .3s ease;
+	box-shadow: 1px 1px 1px 1px #212121;
+	height: 630px;
+	
+	/* panel */
+	/* Inputs */
+	/* Button */
+	/* Footer */
+	/* Alt panel */
+ 
+}
+.panel .input-container {
+  position: relative;
+	  margin: 0 60px 50px;
+}
+.panel .input-container input {
+  outline: none;
+	  z-index: 1;
+	  position: relative;
+	  background: none;
+	  width: 100%;
+	  height: 54px;
+	  border: 0;
+	  color: #212121;
+	  font-size: 20px;
+	  font-weight: 400;
+}
+.panel .input-container input:focus ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+		  transform: translate(-12%, -50%) scale(0.75);
+} 
+.panel .input-container input:focus ~ .bar:before, .panel .input-container input:focus ~ .bar:after {
+  width: 50%;
+}
+.panel .input-container input:valid  ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+		  transform: translate(-12%, -50%) scale(0.75);
+}
+.panel .input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #757575;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 60px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.panel .input-container .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #757575;
+  width: 100%;
+  height: 1px;
+}
+.panel .input-container .bar:before, .panel .input-container .bar:after {
+  content: '';
+  position: absolute;
+  background: #ec2652;
+  width: 0;
+  height: 2px;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+.panel .input-container .bar:before {
+  left: 50%;
+}
+.panel .input-container .bar:after {
+  right: 50%;
+}
+.registro{
+    width: 400px;
+      height: 100%;
+      float: right;
+      opacity: .9;
+  }
+
+  /************************************************************/
+
+  hr {
+    height: 1px;
+    border: 0;
+    background-color: red;
+}

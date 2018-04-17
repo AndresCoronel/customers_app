@@ -19,7 +19,10 @@ class CustomersContainer extends Component {
     handleAddNew = () => {
         this.props.history.push('/customers/new')
     }
-
+    onBack = () => {
+        console.log("handleOn Click");
+        this.props.history.push('/logeado');
+    }
     renderBody = customers => (
         <div>
             <CustomersList
@@ -28,7 +31,8 @@ class CustomersContainer extends Component {
             </CustomersList>
 
             <CustomersActions>
-                <button onClick={this.handleAddNew} >Nuevo Usuario</button>
+                <button onClick={this.handleAddNew}>Nuevo Usuario</button>
+                <button onClick={this.onBack}>Volver</button>
             </CustomersActions>
         </div>
     )
@@ -37,7 +41,8 @@ class CustomersContainer extends Component {
         return (
             <div>
                 <AppFrame header={'Listado de usuarios'}
-                    body={this.renderBody(this.props.customers)} ></AppFrame>
+                    body={this.renderBody(this.props.customers)}>
+                </AppFrame>
             </div>
         )
     }
@@ -46,7 +51,7 @@ class CustomersContainer extends Component {
 CustomersContainer.propTypes = {
     fetchCustomers: PropTypes.func.isRequired,
     customers: PropTypes.array.isRequired,
-   
+
 };
 
 CustomersContainer.defaultProps = {
@@ -54,7 +59,7 @@ CustomersContainer.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    
+
     customers: getCustomers(state)
 });
 

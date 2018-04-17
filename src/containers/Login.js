@@ -11,12 +11,12 @@ class Login extends Component {
 
     handleSubmit = values => {
        if(!values){
-        this.props.history.push('/customers');
+        this.props.history.push('/movies');
        }
     }
 
     handleSubmitSuccess = () => {
-        this.props.history.push('/customers');
+        this.props.history.push('/logeado');
     }
 
     handelOnBack = () => {

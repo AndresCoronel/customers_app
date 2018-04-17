@@ -19,17 +19,24 @@ class MoviesContainer extends Component {
     handleAddNew = () => {
         this.props.history.push('/movies/new')
     }
-
+    onBack = () => {
+        console.log("handleOn Click");
+        this.props.history.push('/logeado');
+    }
     renderBody = movies => (
         <div>
+
             <MoviesList
                 movies={movies}
                 urlPath={'movies/'}>
             </MoviesList>
+            <div className="alineacionBotones">
+                <button className="botonesActions" onClick={this.handleAddNew}>Agregar</button>
+                <button className="botonesActions" onClick={this.onBack}>Volver</button>
+            </div>
 
-            <MoviesActions>
-                <button onClick={this.handleAddNew} >Agregar pelicula</button>
-            </MoviesActions>
+            
+
         </div>
     )
 
@@ -46,7 +53,7 @@ class MoviesContainer extends Component {
 MoviesContainer.propTypes = {
     fetchMovies: PropTypes.func.isRequired,
     movies: PropTypes.array.isRequired,
-   
+
 };
 
 MoviesContainer.defaultProps = {
@@ -54,7 +61,7 @@ MoviesContainer.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    
+
     movies: getMovies(state)
 });
 

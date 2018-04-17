@@ -13,6 +13,7 @@ const CustomersList = ({ customers, urlPath }) => {
                         key={c.cedula}
                         cedula={c.cedula}
                         name={c.name}
+                        age={c.age}
                         editAction={'Editar'}
                         delAction={'Eliminar'}
                         urlPath={urlPath}>

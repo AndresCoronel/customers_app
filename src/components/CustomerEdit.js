@@ -51,15 +51,18 @@ class CustomerEdit extends Component {
     }
 
     /*Mostrar el error del campo*/
+    /*<label htmlFor={name}>{label}</label>*/
     renderField = ({ input, meta, type, label, name, withFocus }) => (
         <div>
-            <label htmlFor={name}>{label}</label>
-            <input {...input} type={!type ? "text" : type}
+
+            <input className="camposTexto" {...input} type={!type ? "text" : type}
                 ref={withFocus && (txt => this.txt = txt)} />
             {
                 meta.touched && <span>{meta.error}</span>
             }
+            <div class="bar"></div>
         </div>
+
     );
 
     render() {
@@ -68,35 +71,65 @@ class CustomerEdit extends Component {
             <div>
                 <h2>Edición del cliente</h2>
                 <form onSubmit={handleSubmit}>
-                    <Field
-                        withFocus
-                        name="name"
-                        component={this.renderField}
-                        label="Nombre"
-                        parse={toUpper}
-                        format={toLower} ></Field>
-                    <Field
-                        name="cedula"
-                        component={this.renderField}
-                        label="Cedula"></Field>
-                    <Field name="age"
-                        component={this.renderField}
-                        type="number"
-                        validate={isNumber}
-                        label="Edad"
-                        parse={toNumber}
-                        normalize={onlyGrow} ></Field>
-                    <CustomersActions>
+                    <div class="card">
+
+                        <div class="links">
+                            <ul>
+                                <div class="card1">
+                                    <img class="card-img-top" className="imgn" src="https://adapt.to/content/dam/adaptto/production/teaserbar/user.png/_jcr_content/renditions/original./user.png" alt="Card image cap" />
+                                    <div class="info-container">
+
+                                        <div><h2 class="info">Nombre:</h2></div>
+                                        <div>
+                                            <Field
+                                                withFocus
+                                                name="name"
+                                                component={this.renderField}
+                                                label="Nombre: "
+                                                parse={toUpper}
+                                                format={toLower} >
+                                            </Field>
+                                        </div>
+
+                                        <div><h2 class="info">Cédula:</h2></div>
+                                        <div>
+                                            <Field
+                                                name="cedula"
+                                                component={this.renderField}
+                                                label="Cédula: "
+                                                validate={isNumber}>
+                                            </Field>
+                                        </div>
+
+                                        <div><h2 class="info">Edad:</h2></div>
+                                        <div>
+                                            <Field
+                                                name="age"
+                                                component={this.renderField}
+                                                type="number"
+                                                validate={isNumber}
+                                                parse={toNumber}
+                                                normalize={onlyGrow}>
+                                            </Field>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                          <CustomersActions>
                         <button type="submit" disabled={pristine || submitting}>
                             Aceptar
                         </button>
                         <button type="button" disabled={submitting} onClick={onBack}>
-                            Cancelar
+                            Volver
                         </button>
                     </CustomersActions>
                     <Prompt
                         when={!pristine && !submitSucceeded}
                         message="Se perderán los datos si continúa"></Prompt>
+
                 </form>
             </div>
         );
@@ -116,4 +149,4 @@ const CustomerEditForm = reduxForm(
         validate
     })(CustomerEdit);
 
-export default accessControl([CUSTOMER_EDIT]) (setPropsAsInitial(CustomerEditForm));
+export default accessControl([CUSTOMER_EDIT])(setPropsAsInitial(CustomerEditForm));

@@ -14,6 +14,11 @@ class HomeContainer extends Component {
         console.log("handleOn Click");
         this.props.history.push('/movies');
     }
+    onBack = () => {
+        console.log("handleOn Click");
+        this.props.history.push('/');
+    }
+   
 
     render() {
         return (
@@ -22,12 +27,13 @@ class HomeContainer extends Component {
                     header='Inicio'
                     body={
                         <div>
-                            <img src="https://4.bp.blogspot.com/-ngrI-kVAaow/WLHRC_js5uI/AAAAAAAAbbo/N8lNqLK3PC4iOeMV98j8hayj2l7fLV5VwCLcB/s1600/77662759c5406e93a741dbf70639d005.jpg" alt=""/>
+                            <img src="http://www.jotdown.es/wp-content/uploads/2014/01/imagen-41.jpg" alt=""/>
                             <CustomersActions>
                                 <button onClick={this.handleOnClick} >Listado de clientes</button>
                                 <button onClick={this.handleOnClickMovie} >Listado de Peliculas</button>
-                                
+                                <button onClick={this.onBack} >Salir</button> 
                             </CustomersActions>        
+                            
                         </div>
                     }>
                     </AppFrame>

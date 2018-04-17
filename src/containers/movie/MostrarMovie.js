@@ -7,7 +7,7 @@ import { getMovieById } from './../../selectors/movies';
 import { Route, withRouter } from 'react-router-dom';
 import MovieEdit from './../../components/movie/MovieEdit';
 import MovieData from './../../components/movie/MovieData';
-import { fetchMovies  } from "./../../actions/movie/fetchMovies";
+import { fetchMovies } from "./../../actions/movie/fetchMovies";
 import { updateMovie } from "./../../actions/movie/updateMovie";
 import { deleteMovie } from "./../../actions/movie/deleteMovie";
 import PerfilMovie from '../../components/movie/PerfilMovie';
@@ -20,17 +20,6 @@ class MovieContainer extends Component {
     }
   }
 
-  handleSubmit = values => {
-    console.log(JSON.stringify(values));
-    const { id } = values;
-    return this.props.updateMovie(id, values).then(r => {
-      if (r.error) {
-        throw new SubmissionError(r.payload);
-      }
-    });
-  }
-
-
   handleOnBack = () => {
     this.props.history.goBack();
   }
@@ -39,33 +28,25 @@ class MovieContainer extends Component {
     this.props.history.goBack();
   }
 
-  handleOnDelete = id => {
-    console.log("eliminando");
-    this.props.deleteMovie(id).then(v =>{
-      this.props.history.goBack();
-    } ) ;
-  }
 
-  renderMovieControl = (isEdit, isDelete) => {
+  renderMovieControl = (isEdit, isView) => {
     if (this.props.movie) {
-      const MovieControl = isEdit ? MovieEdit : MovieData;
+      const MovieControl = isView ? PerfilMovie : MovieEdit;
       return <MovieControl {...this.props.movie}
         onSubmit={this.handleSubmit}
         onSubmitSuccess={this.handleOnSubmitSuccess}
-        onBack={this.handleOnBack}
-        isDeleteAllow={!!isDelete}
-        onDelete={this.handleOnDelete} />
+        onBack={this.handleOnBack} />
     }
 
     return null;
   }
 
   renderBody = () => (
-    <Route path="/movies/:id/edit" children={
-      ({ match: isEdit }) => (
-        <Route path="/movies/:id/delete" children={
-          ({ match: isDelete }) => (
-            this.renderMovieControl(isEdit, isDelete))
+    <Route path="/:id/view" children={
+      ({ match: isView }) => (
+        <Route path="/movies/:id/edit" children={
+          ({ match: isEdit }) => (
+            this.renderMovieControl(isEdit, isView))
         } />)
     } />
   )
@@ -73,8 +54,7 @@ class MovieContainer extends Component {
   render() {
     return (
       <div>
-        <AppFrame header={`Movie: ${this.props.id} `}
-          body={this.renderBody()} >
+        <AppFrame body={this.renderBody()}>
         </AppFrame>
       </div>
     )

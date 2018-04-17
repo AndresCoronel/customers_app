@@ -9,7 +9,7 @@ server.use(middlewares)
 server.listen(3001, () => {
   console.log('JSON Server is running')
 })
-
+/*usuario logueado*/
 server.put('/customers/30000001', (req, res) => {
   let body = [];
   req.on('data', (chunk) => {

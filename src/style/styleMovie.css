@@ -1,0 +1,311 @@
+.ali{
+    display: inline-block;
+}
+
+.h1 {
+	font-weight: bold;
+	color: black;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-size: 1.7em;
+	margin-top: -0px;
+	width: auto;
+}
+
+  /**************************************************************/
+
+  
+
+  /*******Linea************************/
+.divHome{
+    margin: 50px;
+}
+  hr {
+    height: 2px;
+    border: 0;
+    background-color: whitesmoke;
+}
+
+
+/*tooltip de la descripcion de la imagen*/
+.tooltip.right .tiptext{
+    top: -5px;
+    left: 110%;
+}
+.tooltip.right .tiptext::after{
+    margin-top: -5px;
+    top: 50%;
+    right: 100%;
+    border-color: transparent #2E2E2E transparent transparent;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted whitesmoke;
+    width: 200px;
+    height: 258px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 15px;
+    text-align: center;
+	background-color: white;
+	border-radius: 15px;
+    padding: 2px 16px 18px 18px;
+    margin-top: 20px;
+}
+.tooltip .tiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;
+    border-radius: 3px;
+    padding: 6px 0;
+    position: absolute;
+    margin: -30px 0px 0 110px;
+    z-index: 1;
+    box-shadow: 0 5px 10px rgba(20, 8, 8, 0.2);
+}
+.tooltip .tiptext::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    /*border-style: solid;*/
+}
+.tooltip:hover .tiptext {
+    visibility: visible;
+}
+
+/************Divs organizacion sobre info pelicula*****************/
+.general{ 
+    margin: auto;
+    width: 100%;
+    height:100%;
+    background-color: red;
+    padding-top: 20px;
+  }
+  .poster{
+    float: left;
+    width: 35%;
+    height: 700px;
+    margin-top: 20px; 
+    margin-left:20px;
+  }
+  .poster .imagen{
+      
+      background-color: black;
+      /*background-attachment: fixed;*/
+      background-repeat: no-repeat;
+       width: 80%;
+       height:50%; 
+       margin-left: 60px;
+       border-radius: 10px; 
+  }
+  
+  .titulo{
+  width: 61%;
+  height: 100px;
+  margin-left: 37%;
+  
+  }
+
+  .informacionMovie{
+    margin-top: 20px; 
+    width: 61%;
+    margin-left: 37%;
+    height: 580px;
+    text-align: left;
+    
+  }
+
+  .in{
+     padding-bottom: 20px;
+  }
+
+  .nombreMovie{      
+      color: white;
+      font-size:50px;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+  .infoCorta{
+    color: white;
+    font-size:20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: auto auto ;
+    grid-gap: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    grid-template-rows: auto ;
+
+  }
+  .datos {
+	color: white;
+	font-size: 20px;
+	width: 100%;
+}
+
+.informacionMovie .sinopsis{
+    text-align: center;
+    vertical-align: middle; 
+    padding: 20px 20px 20px 20px ;  
+    margin: auto;
+    
+} 
+.informacionMovie .todoSinopsis{
+    text-align: center;
+    position: relative;
+    width: 95%; 
+    margin: auto;  
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    height: 25%;     
+    
+} 
+.todoSinopsis:hover{
+    box-shadow: 5px 8px 16px 0px gray;
+}
+.informacionMovie .subtitulo{
+    text-align: left;
+}
+.informacionMovie .reparto{
+    text-align: center;
+    vertical-align: middle;  
+    padding: 50px;  
+    margin: auto;
+}
+.todoReparto{
+    text-align: center;
+    position: relative;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-top: 2px solid red;
+    width: 95%;
+    margin: auto;
+    margin-top: 160px; 
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+    height: 50%;
+}
+.todoReparto:hover{
+    box-shadow: 5px 8px 16px 0px gray;
+}
+
+/***************************************************************************/
+
+
+/************Botones stylle*****************/
+.alineacionBotones{
+    display: inline-block;
+    width: 800px;
+
+}
+.botonesActions{
+  background: white;
+  height: 30px;
+  margin: 5px;
+  border-style: none;
+  border-radius: 3px;
+  font-weight: bolder;
+  cursor: pointer;
+  width: 100px;
+}
+
+.botonesActions:hover {
+        background: #F0F0F0;
+        border-style: solid;
+}
+
+.botonViewMovie{
+    display: inline-block;
+    background-color: #FF5733;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 250px;
+    margin-left: -180px;
+}
+.botonesMovie{
+	margin: 10px;
+    display: inline-block;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 180px;
+  }
+
+/************************Home movies *********************/
+
+.acordeon{
+    width: 100%;
+    margin: 50px auto;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.acordeon .item{
+  height: 100px;
+    box-shadow: 0px 10px 5px -6px rgba(0,0,0,0.26);
+    width: 100%;
+}
+
+.acordeon .item span{
+    padding-left: 15px;
+    font-size: 40px;
+    vertical-align: middle;
+}
+
+.acordeon .item h2{
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    padding-left: 50px;
+    line-height: 75px;
+    
+}
+
+.acordeon .item:first-of-type{
+    background: #620808;
+    color: #f4ce74;
+}
+
+.acordeon .item:nth-child(3){
+    background: #a53f3f;
+    color: #ffe9c1;
+    
+}
+
+.acordeon .item:nth-child(5){
+    background: #f4ce74;
+    color: #620808;
+}
+
+.acordeon .item:nth-child(7){
+    background: #ffe9c1;
+    color: #d5441c;
+}
+
+.acordeon .links{
+    display: none;
+    padding-top: 15px;
+}
+
+.links ul{
+    margin: 0;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    
+}
+
+.links ul li{
+    list-style: none;
+}
+
+.links ul li a{
+    text-decoration: none;
+    color: #620808;
+}
+
+.links ul li a:hover:before{
+    content: "---";
+}
+

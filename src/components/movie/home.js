@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 
-const MovieListItem = ({ nombre, descripcion, duracion, editAction, delAction, urlPath, id }) => {
+const HomeMovies = ({ nombre, descripcion, duracion, editAction, delAction, urlPath, id }) => {
     const imageUrl = require(`./123.png`);
     return (
         <div className="ali">
-            <div class="card">  
+            <div class="card">
                 <div class="tooltip" style={{ backgroundImage: `url(${imageUrl})` }}>
 
                     <h2 className="h1">{nombre}</h2>
@@ -20,19 +20,16 @@ const MovieListItem = ({ nombre, descripcion, duracion, editAction, delAction, u
                     </span>
 
                     <div className="botonesMovie">
-                        <Link to={`${urlPath}${id}/edit`}>{editAction}</Link>   
+                        <Link to={`${urlPath}${id}/view`}>hola</Link>   
                     </div>
-                    <div className="botonesMovie">
-                    <Link to={`${urlPath}${id}/delete`}>{delAction}</Link>
-                    </div>
-                    
+                                        
                 </div>
             </div>
         </div>
     );
 };
 
-MovieListItem.propTypes = {
+HomeMovies.propTypes = {
     id: PropTypes.string.isRequired,
     nombre: PropTypes.string.isRequired,
     duracion: PropTypes.string.isRequired,
@@ -42,4 +39,4 @@ MovieListItem.propTypes = {
     urlPath: PropTypes.string.isRequired,
 };
 
-export default MovieListItem;
+export default HomeMovies;

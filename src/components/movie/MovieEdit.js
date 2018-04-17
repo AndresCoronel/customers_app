@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 import { setPropsAsInitial } from './../../helpers/setPropsAsInitial';
 import MoviesActions from './MoviesActions';
 import { Prompt } from 'react-router-dom';
-import { accessControl } from './../../helpers/accessControl';
-import { MOVIE_EDIT } from './../../constants/permissions';
 
 /*hacer que un campo sea requerido*/
 const isRequired = value => (
@@ -158,4 +156,4 @@ const MovieEditForm = reduxForm(
         validate
     })(MovieEdit);
 
-export default accessControl([MOVIE_EDIT])(setPropsAsInitial(MovieEditForm));
+export default setPropsAsInitial(MovieEditForm);

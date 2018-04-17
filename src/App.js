@@ -6,9 +6,11 @@ import CustomersContainer from './containers/CustomersContainer';
 import MoviesContainer from './containers/movie/MoviesContainer';
 import CustomerContainer from './containers/CustomerContainer';
 import MovieContainer from './containers/movie/MovieContainer';
+import HomeMovies from './containers/movie/HomeMovies';
 import NewCustomerContainer from './containers/NewCustomerContainer';
 import NewMovieContainer from './containers/movie/NewMovieContainer';
 import Login from './containers/Login';
+import MostrarMovie from './containers/movie/MostrarMovie';
 
 class App extends Component {
 
@@ -17,13 +19,12 @@ class App extends Component {
   renderCustomerListContainer = () => <h1>Customer List Container</h1>;
   renderCustomerNewContainer = () => <h1>Customer New Container</h1>;
 
-
   render() {
     return (
       <Router>
         <div className="App">
-
-          <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/logeado" component={HomeContainer} />
+          <Route exact path="/" component={HomeMovies} />
           <Route exact path="/customers" component={CustomersContainer} />
           <Route exact path="/movies" component={MoviesContainer} />
           <Route exact path="/login" component={Login} />
@@ -32,9 +33,11 @@ class App extends Component {
             <Route path="/movies/new" component={NewMovieContainer} />
             <Route path="/customers/:cedula"
               render={props => <CustomerContainer cedula={props.match.params.cedula} />} />
-
             <Route path="/movies/:id"
               render={props => <MovieContainer id={props.match.params.id} />} />
+               <Route path="/:id"
+              render={props => <MostrarMovie id={props.match.params.id} />} />
+
           
           </Switch>
         </div>

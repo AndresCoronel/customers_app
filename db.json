@@ -1,31 +1,21 @@
 {
   "customers": [
     {
-      "name": "NUEVO PLIMITO",
-      "cedula": "432",
-      "age": 14,
-      "id": "o8vWa2J",
-      "isDeleteAllow": false,
       "user": {
         "permissions": [
           "CUSTOMER_LIST",
           "CUSTOMER_VIEW",
-          "CUSTOMER_EDIT"
-        ]
-      }
-    },
-    {
-      "user": {
-        "permissions": [
-          "CUSTOMER_LIST",
-          "CUSTOMER_VIEW",
-          "CUSTOMER_EDIT"
+          "CUSTOMER_EDIT",
+          "MOVIE_LIST",
+          "MOVIE_VIEW",
+          "MOVIE_EDIT"
         ]
       },
-      "name": "NUEVO USUARIO",
-      "cedula": "099991",
-      "age": 16,
-      "id": "fQ1QS7M"
+      "name": "MAYRA",
+      "cedula": "123",
+      "age": 20,
+      "id": 1,
+      "isDeleteAllow": false
     },
     {
       "user": {
@@ -38,48 +28,48 @@
           "MOVIE_EDIT"
         ]
       },
-      "name": "YESICA PIÑERES",
-      "cedula": "10129103913",
-      "age": 18,
-      "id": "pYMfq7z"
+      "name": "ANDRES",
+      "cedula": "123",
+      "age": 20,
+      "id": 2
+    },
+    {
+      "user": {
+        "permissions": [
+          "CUSTOMER_LIST",
+          "CUSTOMER_VIEW",
+          "CUSTOMER_EDIT",
+          "MOVIE_LIST",
+          "MOVIE_VIEW",
+          "MOVIE_EDIT"
+        ]
+      },
+      "name": "1",
+      "cedula": "1",
+      "age": 1,
+      "id": 3
     }
   ],
   "movies": [
     {
-      "user": {
-        "permissions": [
-          "CUSTOMER_LIST",
-          "CUSTOMER_VIEW",
-          "CUSTOMER_EDIT",
-          "MOVIE_LIST",
-          "MOVIE_VIEW",
-          "MOVIE_EDIT"
-        ]
-      },
-      "nombre": "EL ABRAZO DE LA MAMA MOCHA",
-      "id": "2",
-      "duracion": 20
+      "nombre": "123",
+      "descripcion": "ALASDKJAÑSLD ASLÑKDJAÑLSDKJASD ALÑSKDJAÑLSKDJASD ALSÑDKJAÑLKDJAÑSLKDJ ÑALSKJDALÑSKJDALKSDJ ",
+      "reparto": "1221",
+      "director": "121212",
+      "paisOrigen": "LASJDÑSLKJ",
+      "fechaEstreno": "12LK",
+      "id": "0121021",
+      "duracion": 12
     },
     {
-      "user": {
-        "permissions": [
-          "CUSTOMER_LIST",
-          "CUSTOMER_VIEW",
-          "CUSTOMER_EDIT",
-          "MOVIE_LIST",
-          "MOVIE_VIEW",
-          "MOVIE_EDIT"
-        ]
-      },
-      "nombre": "BRYAN",
-      "descripcion": "JOVEN DE 18 AÑOS",
-      "reparto": "DE HOLLYWOOD",
-      "director": "CORONEL ALIPIO",
-      "paisOrigen": "LITUANIA",
-      "fechaEstreno": "32 DE DICIEMBRE",
-      "id": "U00114057",
-      "duracion": 4.5,
-      "isDeleteAllow": false
+      "nombre": "1",
+      "descripcion": "HOLA COMO ESTA DON RICARDO",
+      "reparto": "PEDRO",
+      "director": "JOSE",
+      "paisOrigen": "COLOMBIA",
+      "fechaEstreno": "JUEVES",
+      "id": "u812121",
+      "duracion": 12
     }
   ],
   "posts": [
